@@ -10,7 +10,7 @@ int Factorial(int e)
     {
         return 1;
     }
-    else
+    else if (e>1)
     {
         for (int i = 1; i <= e; i++)
         {
