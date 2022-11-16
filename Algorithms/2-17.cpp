@@ -12,12 +12,14 @@ int main()
 	cout << "y = ";
 	for (int i = 1; i <= n; i++)
 	{
+		
+		if (i != 1) cout << " + ";
+		cout << "x^" << i << "/" << fact;
+		fact = 1;
 		for (int j = 1; j <= i; j++)
 		{
 			fact *= j;
 		}
-		if (i != 1) cout << " + ";
-		cout << "x^" << i << "/" << fact;
-		fact = 1;
+
 	}
 }
