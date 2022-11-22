@@ -14,6 +14,6 @@ int main()
         else result-=i;
     }
 
-    cout << "Sum = " << sum << endl;
+    cout << "Sum = " << result << endl;
      
 }
