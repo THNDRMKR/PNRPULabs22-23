@@ -1,8 +1,5 @@
 #include <iostream>
-<<<<<<< HEAD
 #include <cmath>
-=======
->>>>>>> eb6955cf1a17c6431444280b63f9685f464f69ae
 
 using namespace std;
 
@@ -22,3 +19,4 @@ for (int i = 2; i <= n; i++)
     sum += (pow(x, i) / fact);
 }
 cout << sum << endl;
+}
