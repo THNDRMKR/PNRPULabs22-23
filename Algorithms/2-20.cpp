@@ -12,13 +12,17 @@ int main()
     cout << "Type n and s\n";
     cin >> n >> s; 
 
-    for (int i = 1; i <= 30 ; i++)
+    while (i<=n and !Ansf)
     {
         elem = sin(n+i/n);
         cout << elem << endl;
-        if (!Ansf && elem == s)
+        if (elem == s)
         {
             Ansf = true;
+        }
+        else
+        {
+            i++;
         }
     }
     if (Ansf) cout << "There it is\n";
