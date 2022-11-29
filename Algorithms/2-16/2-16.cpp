@@ -4,16 +4,21 @@ using namespace std;
 
 int main()
 {
-    int n, result;
-    cout << "Type n - numberof elements\n";
+    int n;
+    int sum = 0;
+
     cin >> n;
-    sum = 0;
+
     for (int i = 1; i <= n; i++)
     {
-        if (i%2==0) result+=i;
-        else result-=i;
+        if (i % 2 == 0)
+        {
+            sum += i;
+        }
+        else
+        {
+            sum -= i;
+        }
     }
-
-    cout << "Sum = " << result << endl;
-     
+    cout << sum << endl;
 }

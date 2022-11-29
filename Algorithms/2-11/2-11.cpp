@@ -4,19 +4,33 @@ using namespace std;
 
 int main()
 {
-    int n, a, num;
-	
+	int n, tmp;
+	bool plusFirst = false; // flag
+	bool minusFirst = false; // flag
+
+	cout << "Введите длину последовательности:" << endl;
 	cin >> n;
-    num = 0;
+
 	for (int i = 1; i <= n; i++)
 	{
-		cin >> a;
-		if (num == 0)
+		cin >> tmp;
+		if (!plusFirst && !minusFirst)
 		{
-			num = a;
+			if (tmp > 0) { plusFirst = true; }
+			else if (tmp < 0) { minusFirst = true; }
 		}
 	}
-    if (num == 0) cout << "All elements are 0\n";
-    else if (num < 0) cout << "First non-zero element is negative\n";
-    else cout <<  "First non-zero element is positive\n";
+	if (plusFirst)
+	{
+		cout << "Сначала ввели положительное число";
+	}
+	else if (minusFirst)
+	{
+		cout << "Сначала ввели отрицательное число";
+	}
+	else
+	{
+		cout << "Все были нулевыми";
+	}
+	cout << endl;
 }

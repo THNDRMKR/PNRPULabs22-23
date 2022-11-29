@@ -4,101 +4,67 @@ using namespace std;
 
 int main()
 {
-    int n, spaces, side;
+	setlocale(LC_ALL, "Rus");
+	int n;
+	int s;
+	cout << "¬ведите число N(квадрат числа)" << endl;
+	cin >> n;
+	s = sqrt(n);
+	if (s * s != n)
+	{
+		cout << "¬ведите корректное значение N" << endl;
+	}
+	else
+	{
+		//заполненный квадрат из N звЄздочек
+		for (int i = 1; i <= s; i++) // по строкам
+		{
+			for (int j = 1; j <= s; j++) // по столбцам
+			{
+				cout << "* ";
+			}
+			cout << endl; // переход на новую строку
+		}
+	}
+	cin >> n;
+	    //заполненный квадрат со сторой N
+	for (int i = 1; i <= n; i++) // по строкам
+	{
+		for (int j = 1; j <= n; j++) // по столбцам
+		{
+			cout << "* ";
+		}
+		cout << endl; // переход на новую строку
+	}
+	cout << endl;
+	cin >> n;
+	int numofspaces=n-2;
 
-    cout << "Type n - number of stars in a square(must be divisible by 4)" << endl;
-    cin >> n;
-    side = (n+4)/4;
-    spaces = side - 2;
-    if (n%4!= 0  || n <= 4)
-    {
-        cout << "Wrong number!" << endl;;
-    }
-    else
-    {
+	for (int i = 1; i <= n; i++) // незаполненный квадрат
+	{
+		if ((i == n) || (i == 1))
+		{
+			for (int j = 1; j <= n; j++)
+			{
+				cout << "* ";
+			}
 
-        for (int i = 1; i <= side; i++)
-        {
-            if (i == 1 || i == side)
-            {
-                for (int j = 1; j <= side; j++)
-                {
-                    cout << "* ";
-                }
-                cout << endl;
-            }
-            else
-            {
-                cout << "* ";
-                for (int j = 1; j <= spaces; j++)
-                {
-                    cout << "  ";
-                }
-                cout << "* " << endl;
-            }
-                
-            
-        }
-       
-    }
-    cout << endl;
+			cout << endl;
 
+		}
+		else
+		{
+			cout << "* ";
+			for (int j = 1; j <= numofspaces; j++)
+			{
+				cout << "  ";
 
+			}
+			cout << "* " << endl;
 
-    cout << "Type n - number of stars in a square's side" << endl;
-    cin >> n;
-    
-    if (n<=1)
-    {
-        cout << "How do you imagine square with that side?" << endl;
-    }
-    else
-    {
+		}
+	}
 
-        for (int i = 1; i <= n; i++)
-        {
-            for (int j = 1; j <= n; j++)
-            {
-                cout << "* ";
-            }
-            cout << endl;
-        }
-       
-    }
-
-
-
-    cout << "Type n - number of stars in a square's side" << endl;
-    cin >> n;
-    if (n<=1)
-    {
-        cout << "Wrong number!" << endl;;
-    }
-    else
-    {
-
-        for (int i = 1; i <= n; i++)
-        {
-            if (i == 1 || i == n)
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    cout << "* ";
-                }
-                cout << endl;
-            }
-            else
-            {
-                cout << "* ";
-                for (int j = 1; j <= n-2; j++)
-                {
-                    cout << "  ";
-                }
-                cout << "* " << endl;
-            }
-                
-            
-        }
-       
-    }
+	return 0;
 }
+

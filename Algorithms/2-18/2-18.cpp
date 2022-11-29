@@ -5,8 +5,7 @@ using namespace std;
 int main()
 {
     int n;
-    int r = 0; // reversed
-
+    int r = 0;
     cin >> n;
 
     while (n > 0)

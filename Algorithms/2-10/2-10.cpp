@@ -4,18 +4,22 @@ using namespace std;
 
 int main()
 {
-	int n, max = 0, maxpl = 0, a;
-	
+	int n, tmp, max;
+
+	cout << "Введите длину последовательности:" << endl;
 	cin >> n;
 
-	for (int i = 1; i <= n; i++)
+	cout << "Введите первое число:" << endl;
+	cin >> max;
+
+	for (int i = 2; i <= n; i++)1
 	{
-		cin >> a;
-		if (a > max)
+		cout << "Введите следующее число:" << endl;
+		cin >> tmp;
+		if (tmp > max)
 		{
-			max = a;
-			maxpl = i;
+			max = tmp;
 		}
 	}
-	cout << "Max num " << max << " was on " << maxpl << "th place" << endl;;
+	cout << "Максимальный элемент: " << max << endl;
 }

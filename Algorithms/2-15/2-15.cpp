@@ -4,20 +4,27 @@ using namespace std;
 
 int main()
 {
-    unsigned int n;
-    int s = 0;
-    bool e;
+    int n, s, k;
+    bool flag = false;
 
-    cout << "Type n - natural number and s - number\n";
     cin >> n >> s;
-    
-    while(n>0)
+
+    while (n > 0 && !flag)
     {
-        if (n%10 == s) e = true;
-        n= n/10;
+        k = n % 10;
+        if (k == s)
+        {
+            flag = true;
+            cout << "Цифра найдена" << endl;
+        }
+        else
+        {
+            n /= 10;
+        }
     }
 
-    if (e) cout << "There is s in n"<< endl;
-    else cout << "There is no s in n"<< endl;
-
+    if (!flag)
+    {
+        cout << "Цифра не найдена" << endl;
+    }
 }

@@ -5,26 +5,33 @@ using namespace std;
 
 int main()
 {
-    int n;
-    double s, elem;
-    bool Ansf = false;
-    elem = 0;
-    cout << "Type n and s\n";
-    cin >> n >> s; 
+float n, s, a;
+int i = 1;
+bool flag = false;
 
-    while (i<=n and !Ansf)
+cin >> n >> s;
+
+while (i <= n && !flag)
+{
+    a = sin(n + i / n);
+    a = round(a*10)/10;
+    cout << n + i/n << "|" << a << endl;
+    if (a == s)
     {
-        elem = sin(n+i/n);
-        cout << elem << endl;
-        if (elem == s)
-        {
-            Ansf = true;
-        }
-        else
-        {
-            i++;
-        }
+        flag = true;
     }
-    if (Ansf) cout << "There it is\n";
-    else cout << "No such element in here\n";
+    else
+    {
+        i++;
+    }
+}
+
+if (flag)
+{
+    cout << "Элемент найден!" << endl;
+}
+else
+{
+    cout << "Элемент не найден!" << endl;
+}
 }

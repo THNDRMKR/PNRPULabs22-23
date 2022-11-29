@@ -4,18 +4,28 @@ using namespace std;
 
 int main()
 {
-    int n, max, minim, a;
+	int n, tmp, max, min;
 
+	cout << "Введите длину последовательности:" << endl;
 	cin >> n;
-    cin >> a;
-    minim = a;
-    max = a;
-	for (int i = 1; i <= n-1; i++)
-	{
-		cin >> a;
-		if (a > max) max = a;
-        if (a < minim) minim = a;
 
+	cout << "Введите первое число:" << endl;
+	cin >> tmp;
+	max = tmp;
+	min = tmp;
+
+	for (int i = 2; i <= n; i++)
+	{
+		cout << "Введите следующее число:" << endl;
+		cin >> tmp;
+		if (tmp > max)
+		{
+			max = tmp;
+		}
+		else if (tmp < min)
+		{
+			min = tmp;
+		}
 	}
-	cout << "Sum of max and min num in sequal = " << minim+max << endl;
+	cout << "Сумма максимального и минимального элементов: " << (max+min) << endl;
 }

@@ -4,29 +4,37 @@ using namespace std;
 
 int main()
 {
-    int n, spaces;
-    cout << "Type n - the base of the triangle in stars(odd and >3)" << endl;
+    setlocale(LC_ALL, "Rus");
+    int n;
+    int numofspaces;
+    int numofstars = 1;
+    cout << "¬ведите основание равнобедренного треугольника N (нечетное и число должно быть больше 3)" << endl;
     cin >> n;
-    spaces = n - 1;
-    if (n < 3 || n%2 == 0)
+
+    if ((n <= 3) || ((int)n % 2 != 1))
     {
-        cout << "Wrong N" << endl;
+        cout << "¬ведите корректное значение N" << endl;
     }
-    else
+
+    numofspaces = n / 2;
+
+    for (int i = 1; i <= (n + 1) / 2; i++)
     {
-        for (int i = 0; i <= n; i+=2)
+        for (int j = 1; j <= numofspaces; j++)
         {
-            for (int j = 0; j <= spaces; j++)
-            {
-                cout << ' ';
-            }
-            for (int j = 0; j <= i; j++)
-            {
-                cout << '*';
-            }
-            cout << endl;
-            spaces--;
+            cout << " ";
         }
+
+        for (int j = 1; j <= numofstars; j++)
+        {
+            cout << "*";
+        }
+
+        cout << endl;
+
+        numofspaces--;
+        numofstars += 2;
     }
+
     return 0;
 }

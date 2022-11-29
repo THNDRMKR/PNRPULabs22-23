@@ -4,32 +4,36 @@ using namespace std;
 
 int main()
 {
-    int n, spaces;
+	setlocale(LC_ALL, "Rus");
+	int n;
+	int numofspaces;
+	cout << "¬ведите число N(натуральное и число должно быть больше 2)" << endl;
+	cin >> n;
 
-    cout << "Type n - length of cathetus in stars >2" << endl;
-    cin >> n;
+	if (n <= 2)
+	{
+		cout << "¬ведите корректное значение N" << endl;
+	}
 
-    spaces = n-2;
-    
-    if (n<=2)
-    {
-        cout << "Wrong n!" << endl;
-    }
-    else
-    {
-        for (int i = 1; i <= n; i++)
-        {
-            for (int j = 0; j <= spaces; j++)
-            {
-                cout << "  ";
-            }
-            for (int j = 1; j <= i; j++)
-            {
-                cout << "* ";
-            }
-            cout <<endl;
-            spaces--;
-        }
-        
-    }
+	numofspaces = n;
+
+	for (int i = 1; i <= n; i++)
+	{
+		numofspaces--;
+
+		for (int j = 1; j <= numofspaces; j++)
+		{
+			cout << " ";
+		}
+
+		for (int j = 1; j <= i; j++)
+		{
+			cout << "*";
+		}
+
+		cout << endl;
+
+	}
+	
+	return 0;
 }
