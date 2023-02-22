@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 
 int main()
@@ -17,8 +17,5 @@ int main()
 			}
 		}
 	}
-	for (int i = 0; i < std::string(str).length(); i++)
-	{
-		std::cout << str[i];
-	}
+	std::cout << str;
 }
