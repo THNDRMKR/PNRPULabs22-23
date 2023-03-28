@@ -5,6 +5,7 @@ struct ListElem
 {
     int data;
     ListElem* next;
+    ListElem* prev;
 };
 
 ListElem* createList(int n)
@@ -14,40 +15,50 @@ ListElem* createList(int n)
     start = new ListElem;
     cin >> start->data;
     start->next = nullptr;
+    start->prev = nullptr;
     prev = start;
     for (int i = 0; i < n - 1; i++)
     {
         curr = new ListElem;
         cin >> curr->data;
         curr->next = nullptr;
+        curr->prev = prev;
         prev->next = curr;
         prev = curr;
     }
     return start;
 }
 
-void insert_element(ListElem* &start, int pos, int k, int &size)
+void insert_element(ListElem*& start, int pos, int k, int& size)
 {
     size++;
     ListElem* first = start;
+    ListElem* last;
     for (int i = 1; i < pos - 1; i++)
     {
         first = first->next;
     }
+    last = first->next;
 
     ListElem* new_element = new ListElem;
     cout << "Type data: ";
     cin >> new_element->data;
-
     if (pos == 1)
     {
-        new_element->next = first;
+        new_element->prev = nullptr;
+        start->prev = new_element;
+        new_element->next = start;
         start = new_element;
     }
     else
     {
-        new_element->next = first->next;
-        first->next = new_element;
+       new_element->prev = first;
+       new_element->next = last;
+       if (last != nullptr)
+       {
+           last->prev = new_element;
+       }
+       first->next = new_element;
     }
 }
 void insert_elements(ListElem* &list, int pos, int k, int &size)
@@ -67,15 +78,19 @@ void delete_element(ListElem* &start, int pos, int k, int &size)
     {
         first = first->next;
     }
+    last = first->next;
     if (pos == 1)
     {
-        start = first->next;
-        first->next = start;
+        start = start->next;
+        start->prev = nullptr;
     }
     else
     {
-        last = first->next->next;
-        first->next = last;
+        first->next = last->next;
+        if (last->next != nullptr)
+        {
+            last->next->prev = first;
+        }
     }
 }
 
@@ -98,10 +113,15 @@ void delete_elements(ListElem* &start, int pos, int k, int &size)
     if (pos == 1)
     {
         start = last;
+        start->prev = nullptr;
     }
     else
     {
         first->next = last->next;
+        if (last->next != nullptr)
+        {
+            last->next->prev = first;
+        }
     }
 }
 
@@ -116,7 +136,7 @@ void search_element(ListElem* start, int element)
     }
     if (curr->data == element)
     {
-        cout << "Element's founded" << endl;
+        cout << "Element is founded" << endl;
     }
     else
     {
